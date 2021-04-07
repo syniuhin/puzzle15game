@@ -10,7 +10,7 @@ object Puzzle15Game extends App {
   )
   val maybeCheat = readLine()
   var gameBoard =
-    if (maybeCheat == "cheat") GameBoard.initCheat else GameBoard.init()
+    if (maybeCheat == "cheat") GameBoard.initCheat else GameBoard.initRandom
   println(gameBoard.stringify)
   var gameState: GameState = GameStateInit
   do {

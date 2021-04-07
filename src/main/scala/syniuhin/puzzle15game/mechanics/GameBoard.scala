@@ -34,12 +34,14 @@ object GameBoard {
     )
   }
 
-  def init(initValues: => Seq[BoardElement] = randomInitValues): GameBoard = {
+  def init(initValues: Seq[BoardElement]): GameBoard = {
     val boardModel = BoardModel(initValues.sliding(columns, rows).toSeq)
     val indexOfEmpty = initValues.indexOf(BoardEmpty)
     val cursor = (indexOfEmpty / rows, indexOfEmpty % columns)
     GameBoard(boardModel, cursor)
   }
+
+  def initRandom: GameBoard = init(randomInitValues)
 
   def initCheat: GameBoard = init(cheatInitValues)
 

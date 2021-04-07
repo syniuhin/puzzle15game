@@ -70,7 +70,7 @@ class GameStateTest extends AnyFlatSpec with Matchers {
 
     val gameBoard = GameBoard
       .init(values)
-      .copy(cursor = (0, 2))  
+      .copy(cursor = (0, 2))
     GameState.availableCommands(gameBoard) should contain theSameElementsAs Seq(
       CursorMoveRight,
       CursorMoveLeft,
@@ -80,7 +80,7 @@ class GameStateTest extends AnyFlatSpec with Matchers {
   }
 
   "GameState" should "quit when asked to" in {
-    val gameBoard = GameBoard.init()
+    val gameBoard = GameBoard.initRandom
     assert(GameState.handleInput("q", gameBoard, Seq())._1 == GameInterrupted)
   }
 }
